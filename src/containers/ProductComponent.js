@@ -6,8 +6,8 @@ function ProductComponent(props) {
     const {id, title} = products[0]
 
     return (
-        <div className=" rounded overflow-hidden border w-full lg:w-2/12 md:w-3/12 bg-white mx-3 md:mx-0 lg:mx-0">
-                <img className="" src="https://3.bp.blogspot.com/-Chu20FDi9Ek/WoOD-ehQ29I/AAAAAAAAK7U/mc4CAiTYOY8VzOFzBKdR52aLRiyjqu0MwCLcBGAs/s1600/DSC04596%2B%25282%2529.JPG"/>
+        <div className=" rounded border w-full bg-white">
+                <img alt="card image" src="https://3.bp.blogspot.com/-Chu20FDi9Ek/WoOD-ehQ29I/AAAAAAAAK7U/mc4CAiTYOY8VzOFzBKdR52aLRiyjqu0MwCLcBGAs/s1600/DSC04596%2B%25282%2529.JPG"/>
                 <div className="px-3 pb-2">
                     <div className="pt-3">
                         <div className="mb-2 text-base">
