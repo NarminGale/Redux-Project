@@ -1,19 +1,22 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from 'axios'
 import {useDispatch, useSelector} from "react-redux";
 import {selectedProduct} from "../redux/actions/productActions";
 
 function ProductDetail() {
-    const productDetail = useSelector((state) => state?.allProducts?.products)
+    const productDetail = useSelector((state) => state?.productStore.product)
+    const [loading, setLoading] = useState(true)
     const {product} = useParams()
     const dispatch = useDispatch()
 
     const {title, image, price, category, description} = productDetail
 
     const fetchProductDetail = async () => {
+        setLoading(true);
         const response = await axios.get(`https://fakestoreapi.com/products/${product}`).catch(err => console.log(err))
         dispatch(selectedProduct(response.data))
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -24,7 +27,7 @@ function ProductDetail() {
 
     return (
         <div className="flex p-20 space-x-14 justify-center items-center">
-            {Object.keys(productDetail).length === 0 ? (
+            {loading ? (
                 <h1>...Loading</h1>
             ) : (
                 <>
